@@ -77,3 +77,7 @@
 
 - Updated the examples
 - Fixed some issues with flutter_device_locale and swift
+
+## [1.5.8]
+
+- Added fallback language to Map load to provide all defaults
