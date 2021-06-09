@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:ui';
 import 'locale_file_service.dart';
 import 'global.dart';
+import 'package:collection/collection.dart' show IterableExtension;
 
 class LocaleService
 {
@@ -14,19 +15,19 @@ class LocaleService
 
     static Locale findLocale(Locale locale, List<Locale> supportedLocales)
     {
-        var existing = supportedLocales.firstWhere((x) => x == locale, orElse: () => null);
+        var existing = supportedLocales.firstWhereOrNull((x) => x == locale);
 
         if(existing == null)
         {
-            existing = supportedLocales.firstWhere((x) => x.languageCode == locale.languageCode, orElse: () => null);
+            existing = supportedLocales.firstWhereOrNull((x) => x.languageCode == locale.languageCode);
         }
 
-        return existing;
+        return existing!;
     }
 
-    static Future<Map<String, dynamic>> getLocaleContent(Locale locale, Map<Locale, String> supportedLocales) async
+    static Future<Map<String, dynamic>?> getLocaleContent(Locale locale, Map<Locale, String> supportedLocales) async
     {
-        var file = supportedLocales[locale];
+        var file = supportedLocales[locale]!;
 
         var content = await LocaleFileService.getLocaleContent(file);
 

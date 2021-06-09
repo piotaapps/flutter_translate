@@ -5,9 +5,9 @@ import 'global.dart';
 
 class LocalizationConfiguration
 {
-    Map<Locale, String> _localizations;
+    Map<Locale, String>? _localizations;
 
-    Map<Locale, String> get localizations => _localizations;
+    Map<Locale, String>? get localizations => _localizations;
 
     final Locale fallbackLocale;
 

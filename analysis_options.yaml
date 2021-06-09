@@ -1,3 +1,2 @@
 analyzer:
-#  enable-experiment:
-#    - non-nullable
+  exclude: [test/**, example/**, example_static_keys/**]
