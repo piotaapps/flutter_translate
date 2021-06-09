@@ -61,6 +61,7 @@ class LocalizationDelegate extends LocalizationsDelegate<Localization> {
   }
 
   @override
+  // ignore: unnecessary_null_comparison
   bool isSupported(Locale locale) => locale != null;
 
   @override
@@ -101,6 +102,7 @@ class LocalizationDelegate extends LocalizationsDelegate<Localization> {
       return false;
     }
 
+    // ignore: unnecessary_null_comparison
     if (locale != null) {
       await changeLocale(locale);
       return true;
@@ -113,6 +115,7 @@ class LocalizationDelegate extends LocalizationsDelegate<Localization> {
     try {
       var locale = await DeviceLocale.getCurrentLocale();
 
+      // ignore: unnecessary_null_comparison
       if (locale != null) {
         await changeLocale(locale);
       }
